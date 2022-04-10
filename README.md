@@ -22,7 +22,7 @@ decline the login.
 
 
 Currently working on:
-A way to view notes that have been stored in the database.
+- A way to view notes that have been stored in the database.
   
 
 next steps:
