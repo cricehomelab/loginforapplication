@@ -15,22 +15,24 @@ user_functions = Login()
 notes = Notes()
 
 running = True
-print("welcome to MyToDoList")
+print("welcome to MyNotes")
 
 logged_in_user = ""
 
 # create database
 if not exists(DB_PATH):
+    print("Creating database.")
     for table in database.sql_create_tables:
         db_conn = database.create_connection(DB_PATH)
         database.create_table(db_conn, table)
-
+    print("Database created.")
 else:
     print("database.db exists already, not re-creating database.")
 
 # loop for the application
 while running:
     if logged_in_user == "" or logged_in_user is None:
+        # These are the options a user who is not logged in can access.
         user_choice = input("what would you like to do?: ")
         if user_choice == "c" or user_choice == "create":
             user_functions.create_user()
@@ -49,6 +51,7 @@ while running:
         else:
             print("Invalid selection. type h, or help for options.")
     else:
+        # these are the options that a logged in user can access.
         print(f"{logged_in_user[1]} is logged in.")
         user_choice = input("What would you like to do?")
         if user_choice == "a" or user_choice == "add":

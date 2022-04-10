@@ -26,7 +26,7 @@ decline the login.
 6. create some functionalities to do once logged in.
    - Able to add and store notes to the database.
    - Added a way to view notes that have been stored in the database.
-     - Make sure user's can't see other user's data. Based on how the information is queried. Users cannot see each 
+     - Make sure user's can't see other user's data. Based on how the information is queried, users cannot see each 
      other's data. 
 
 Currently, working on:

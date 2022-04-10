@@ -8,10 +8,19 @@ class Login:
         self.db_path = f"{os.getcwd()}\\database.db"
 
     def encrypt_string(self, hash_string):
+        """
+        Takes a string password and encrypts it with SHA256 encryption.
+        :param hash_string:
+        :return: sha_signature: this is the hashed password.
+        """
         sha_signature = hashlib.sha256(hash_string.encode()).hexdigest()
         return sha_signature
 
     def create_user(self):
+        """
+        Creates a new user and adds them to the database.
+        :return:
+        """
         user_name = input("Pick a user name.")
         # Ensuring password is created correctly.
         password_creation = True
@@ -29,6 +38,12 @@ class Login:
         print("Account created. ")
 
     def login_user(self, user_info):
+        """
+        Logs a user in to enable access the logged in functionalities.
+        :param user_info: this is a list of the username and the unencrypted password of the user.
+        :return: if the authentication completes the "user" that autheniticates is returned as a tuple in the format
+        (id, user, password). If the user does not authenticate return is None.
+        """
         logged_in = False
         username = user_info[0]
         password = self.encrypt_string(user_info[1])
@@ -44,3 +59,4 @@ class Login:
             return user
         else:
             print("Username or password is incorrect try logging in again")
+            return None
