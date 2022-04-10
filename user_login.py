@@ -33,7 +33,7 @@ class Login:
         username = user_info[0]
         password = self.encrypt_string(user_info[1])
         db_connection = self.database.create_connection(self.db_path)
-        users = self.database.find_user(db_connection, username)
+        users = self.database.find_user(db_connection)
         for user in users:
             if username == user[1]:
                 if password == user[2]:

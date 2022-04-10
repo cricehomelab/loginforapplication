@@ -10,18 +10,24 @@ For this project I am doing my best to steer clear of a tutorial that just shows
 to solve roadblocks with my own research and discovery. 
 
 
-Current functionality
-# 20220409
+Current functionality:
 1. Able to make a user with a password, and convert the password to SHA256.
 2. Able to create database with a table named users.
 3. Table stores a username and a password.
 4. Able to create users and store their username and password in the database. 
 5. Need to be able to check the username and password against the value stored in the database and authenticate or
 decline the login. 
+6. create some functionalities to do once logged in.
+   - able to add and store notes to the database.
 
-next steps
-1. create some functionalities to do once logged in, probably need to store data that only the logged in user can see. 
-2. Make sure user's can't see other user's data.
-3. put some rules around password creation, currently a password like "123456" is considered valid. I would like to add
+
+Currently working on:
+A way to view notes that have been stored in the database.
+  
+
+next steps:
+1. Make sure user's can't see other user's data.
+3. Put some rules around password creation, currently a password like "123456" is considered valid. I would like to add
 standard requirements like requiring capitals, lowercase, numbers and symbols in the password generation or asking for
 the user to enter a different password that fulfils the requirements. 
+4. Migrate this to a GUI framework, with either TKinter or PyQT5. 

@@ -10,6 +10,14 @@ class Database:
                                         name text NOT NULL,
                                         password text
                                     ); """
+        self.sql_create_notes_table = """CREATE TABLE IF NOT EXISTS notes (
+                                    id integer PRIMARY KEY,
+                                    note_id integer NOT NULL,
+                                    name text NOT NULL,
+                                    notes text NOT NULL,                                    
+                                    FOREIGN KEY (note_id) REFERENCES users (id)
+                                );"""
+        self.sql_create_tables = [self.sql_create_user_table, self.sql_create_notes_table]
 
     def create_table(self, conn, create_table_sql):
         """
@@ -33,7 +41,7 @@ class Database:
         :param db_file: file path to the database.
         :return:
         """
-        print('create_connection() called, connecting to database.')
+
         conn = None
         try:
             conn = sqlite3.connect(db_file)
@@ -44,6 +52,12 @@ class Database:
         return conn
 
     def create_user(self, conn, user_data):
+        """
+
+        :param conn: opened database object.
+        :return: all users in db.
+
+        """
         sql = ''' INSERT INTO users(name,password)
                       VALUES(?,?) '''
         cur = conn.cursor()
@@ -52,8 +66,17 @@ class Database:
         conn.close()
         return cur.lastrowid
 
-    def find_user(self, conn, user):
+    def find_user(self, conn):
         cur = conn.cursor()
         cur.execute("SELECT * from users")
         users = cur.fetchall()
         return users
+
+    def add_note(self, conn, user_data):
+        sql = '''INSERT INTO notes(note_id, name, notes)
+        VALUES(?,?,?)'''
+        cur = conn.cursor()
+        cur.execute(sql, user_data)
+        conn.commit()
+        conn.close()
+        return cur.lastrowid
