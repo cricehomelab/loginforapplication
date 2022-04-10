@@ -51,10 +51,12 @@ while running:
     else:
         print(f"{logged_in_user[1]} is logged in.")
         user_choice = input("What would you like to do?")
-        if user_choice == "a" or user_choice == "add note":
+        if user_choice == "a" or user_choice == "add":
             notes.add_note(DB_PATH, logged_in_user)
         elif user_choice == "l" or user_choice == "logout":
             print(f"logging out of {logged_in_user[1]}")
             logged_in_user = None
+        elif user_choice == "v" or "view":
+            notes.view_notes(DB_PATH, logged_in_user[0])
 
 

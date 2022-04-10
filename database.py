@@ -79,4 +79,10 @@ class Database:
         cur.execute(sql, user_data)
         conn.commit()
         conn.close()
-        return cur.lastrowid
+        return True
+
+    def get_user_notes(self, conn, user_id):
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM notes WHERE note_id=?", (user_id,))
+        rows = cur.fetchall()
+        return rows
