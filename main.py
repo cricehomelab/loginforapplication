@@ -56,10 +56,27 @@ while running:
         user_choice = input("What would you like to do?")
         if user_choice == "a" or user_choice == "add":
             notes.add_note(DB_PATH, logged_in_user)
+        elif user_choice == "h" or user_choice == "help":
+            print("a or 'add' to add a note.")
+            print("l or 'logout' to log out.")
+            print("v or 'view' to view your notes.")
         elif user_choice == "l" or user_choice == "logout":
             print(f"logging out of {logged_in_user[1]}")
             logged_in_user = None
         elif user_choice == "v" or "view":
-            notes.view_notes(DB_PATH, logged_in_user[0])
+            view = True
+            while view:
+                notes.view_notes(DB_PATH, logged_in_user[0])
+                user_choice = input("Note view: ")
+                if user_choice == "a" or user_choice == "add":
+                    notes.add_note(DB_PATH, logged_in_user)
+                elif user_choice == "b" or user_choice == "back":
+                    view = False
+                elif user_choice == "e" or user_choice == "edit":
+                    notes.edit_note(DB_PATH)
+                elif user_choice == "h" or user_choice == "help":
+                    print("b or 'back' to go back.")
+                    print("e or 'edit' to edit a note.")
+
 
 

@@ -28,9 +28,10 @@ decline the login.
    - Added a way to view notes that have been stored in the database.
      - Make sure user's can't see other user's data. Based on how the information is queried, users cannot see each 
      other's data. 
+   - Adding functionality to edit and delete notes.  
 
 Currently, working on:
-- Adding functionality to edit and delete notes.  
+- adding more notation to my most recent edits. 
 
 next steps:
 
