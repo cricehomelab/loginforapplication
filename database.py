@@ -1,6 +1,6 @@
 import sqlite3
 from sqlite3 import Error
-# from database import Database
+
 
 
 class Database:
@@ -114,6 +114,13 @@ class Database:
         return rows
 
     def edit_note(self, conn, note):
+        """
+        Commits an edit to the database.
+        :param conn: active DB connection.
+        :param note: tuple with the details of the note that need to be edited (name of note, contents of notes,
+        id of the note to be edited)
+        :return: None
+        """
         sql = '''UPDATE notes
                  SET name = ?,
                      notes = ?

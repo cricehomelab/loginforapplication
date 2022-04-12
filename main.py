@@ -49,7 +49,7 @@ while running:
             user_info = [user, user_password]
             logged_in_user = user_functions.login_user(user_info)
         else:
-            print("Invalid selection. type h, or help for options.")
+            print("Invalid selection, type 'h' or 'help' for your options.")
     else:
         # these are the options that a logged in user can access.
         print(f"{logged_in_user[1]} is logged in.")
@@ -67,7 +67,7 @@ while running:
             view = True
             while view:
                 notes.view_notes(DB_PATH, logged_in_user[0])
-                user_choice = input("Note view: ")
+                user_choice = input("Note view (press h for help): ")
                 if user_choice == "a" or user_choice == "add":
                     notes.add_note(DB_PATH, logged_in_user)
                 elif user_choice == "b" or user_choice == "back":
@@ -75,8 +75,11 @@ while running:
                 elif user_choice == "e" or user_choice == "edit":
                     notes.edit_note(DB_PATH)
                 elif user_choice == "h" or user_choice == "help":
+                    print("a or 'add' to add a note.")
                     print("b or 'back' to go back.")
                     print("e or 'edit' to edit a note.")
+        else:
+            print("Invalid selection, type 'h' or 'help' for your options.")
 
 
 

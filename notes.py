@@ -25,6 +25,11 @@ class Notes:
             print(f"Note {note_name} added.")
 
     def edit_note(self, conn):
+        """
+        edits a note.
+        :param conn: database path.
+        :return: None
+        """
         choice = input("what note do you want to edit?: ")
         if choice.isdigit():
             choice = int(choice) - 1

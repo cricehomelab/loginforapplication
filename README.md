@@ -28,15 +28,16 @@ decline the login.
    - Added a way to view notes that have been stored in the database.
      - Make sure user's can't see other user's data. Based on how the information is queried, users cannot see each 
      other's data. 
-   - Adding functionality to edit and delete notes.  
+   - Adding functionality to edit and delete notes. 
+7. Added a help section for once the user is logged in with commands they can use.
 
 Currently, working on:
-- adding more notation to my most recent edits. 
+Looking into the best way to convert this to a GUI. Will likely spin that off in a separate repo.  
 
 next steps:
 
-2. Put some rules around password creation, currently a password like "123456" is considered valid. I would like to add
+1Put some rules around password creation, currently a password like "123456" is considered valid. I would like to add
 standard requirements like requiring capitals, lowercase, numbers and symbols in the password generation or asking for
 the user to enter a different password that fulfils the requirements. 
-3. Migrate this to a GUI framework, with either TKinter or PyQT5. 
-4. Add a help section for once the user is logged in with commands they can use. 
+2Migrate this to a GUI framework, with either TKinter or PyQT5. 
+ 
